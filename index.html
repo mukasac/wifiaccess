@@ -34,20 +34,22 @@
             z-index: 1000;
         }
         
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--color-yellow);
-        }
-        
         .logo-container {
             display: flex;
             align-items: center;
         }
         
         .wifi-icon {
-            font-size: 2rem;
+            height: 2.5rem;
+            width: auto;
             margin-right: 0.5rem;
+    filter: brightness(0) invert(1);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--color-yellow);
         }
 
         nav ul {
@@ -298,7 +300,6 @@
     <main>
         <section class="hero">
             <h1>Welcome to Solo-Net WiFi</h1>
-            <p>Island-wide Connectivity</p>
             <a href="#plans" class="cta-button">Connect Now</a>
         </section>
 
