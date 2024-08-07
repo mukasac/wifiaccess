@@ -1,1 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect to Solo-Net WiFi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #0051A1;
+            --color-secondary: #FCD116;
+            --color-accent: #009639;
+            --color-white: #FFFFFF;
+            --color-background: #F5F5F5;
+            --color-text: #333333;
+            --color-light-gray: #E0E0E0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex-grow: 1;
+        }
+        
+        header {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--color-secondary);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 0;
+        }
+        
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .welcome-message {
+            text-align: center;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .plan-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-card {
+            background-color: var(--color-white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background-color: var(--color-accent);
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .plan-card h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .plan-card p {
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .select-plan {
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .select-plan:hover {
+            background-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            background-color: var(--color-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item {
+            text-align: center;
+            max-width: 200px;
+        }
+        
+        .feature-item i {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: auto;
+        }
+        
+        .footer-links {
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-white);
+        }
+        
+        .language-select {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--color-white);
+            border: 1px solid var(--color-light-gray);
+            border-radius: 5px;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .plan-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .plan-card {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem;
+            }
+            
+            .feature-item {
+                margin-bottom: 1.5rem;
+            }
+            
+            .language-select {
+                top: auto;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Solo-Net</div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h1>Welcome to Solo-Net WiFi</h1>
+            <p class="welcome-message">Experience lightning-fast internet across Solomon Islands. Choose a plan that suits your needs and get connected in seconds!</p>
+            
+            <div class="plan-cards">
+                <div class="plan-card">
+                    <h3>Quick Surf</h3>
+                    <p>$5 for 1 hour</p>
+                    <a href="#" class="select-plan" onclick="selectPlan('Hourly')">Get Online</a>
+                </div>
+                <div class="plan-card">
+                    <h3>Day Pass</h3>
+                    <p>$10 for 24 hours</p>
+                    <a href="#" class="select-plan" onclick="selectPlan('Daily')">Get Online</a>
+                </div>
+                <div class="plan-card">
+                    <h3>Week Explorer</h3>
+                    <p>$30 for 7 days</p>
+                    <a href="#" class="select-plan" onclick="selectPlan('Weekly')">Get Online</a>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Lightning Fast</h3>
+                    <p>Enjoy speeds up to 100Mbps</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-wifi"></i>
+                    <h3>Island-Wide Coverage</h3>
+                    <p>Stay connected across Solomon Islands</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure Connection</h3>
+                    <p>Browse safely with our encrypted network</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Solo-Net. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Help Center</a>
+        </div>
+    </footer>
 
+    <select class="language-select" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="si">Solomons Pijin</option>
+    </select>
+
+    <script>
+        function selectPlan(plan) {
+            // Here you would typically redirect to a payment gateway or login page
+            alert(`You selected the ${plan} plan. Redirecting to payment...`);
+            // Redirect to payment page or show payment modal
+        }
+
+        function changeLanguage(lang) {
+            // Here you would implement language change functionality
+            alert(`Changing language to ${lang === 'en' ? 'English' : 'Solomons Pijin'}`);
+            // Implement language change
+        }
+    </script>
+</body>
+</html>
