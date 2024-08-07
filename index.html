@@ -39,16 +39,17 @@
             font-weight: bold;
             color: var(--color-yellow);
         }
-        .logo-container {
-    display: flex;
-    align-items: center;
-
-            .wifi-icon {
-    font-size: 2rem;
-    margin-right: 0.5rem;
-}
-
         
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .wifi-icon {
+            font-size: 2rem;
+            margin-right: 0.5rem;
+        }
+
         nav ul {
             display: flex;
             list-style-type: none;
@@ -77,7 +78,7 @@
         }
         
         main {
-            padding-top: 40px;
+            padding-top: 60px;
         }
         
         .hero {
@@ -227,15 +228,14 @@
             text-decoration: none;
         }
         
-       @media (max-width: 768px) {
-    .sticky-header {
-        padding: 0.5rem 1rem;
-    }
-    
-    .logo-container {
-        margin-bottom: 0.5rem;
-    }
-}
+        @media (max-width: 768px) {
+            .sticky-header {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo-container {
+                margin-bottom: 0.5rem;
+            }
             
             nav ul {
                 margin-top: 0.5rem;
@@ -282,16 +282,23 @@
 </head>
 <body>
     <header class="sticky-header">
-      <div class="logo-container">
-        <span class="wifi-icon">&#128246; </span>
-        <div class="logo">Solo-Net</div>
-    </div>
+        <div class="logo-container">
+            <span class="wifi-icon" aria-label="WiFi icon">&#128246;</span>
+            <div class="logo">Solo-Net</div>
+        </div>
+       <!-- <nav>
+            <ul>
+                <li><a href="#plans">Plans</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+        </nav>-->
     </header>
 
     <main>
         <section class="hero">
             <h1>Welcome to Solo-Net WiFi</h1>
-            
+            <p>Island-wide Connectivity</p>
             <a href="#plans" class="cta-button">Connect Now</a>
         </section>
 
