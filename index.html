@@ -6,19 +6,19 @@
     <title>Solo-Net WiFi - Island-wide Connectivity</title>
     <style>
         :root {
-            --color-primary: #0066CC;
-            --color-secondary: #FF6F61;
-            --color-accent: #40E0D0;
-            --color-background: #FFFFFF;
+            --color-blue: #0051ba;
+            --color-yellow: #fcd116;
+            --color-green: #009e60;
+            --color-white: #ffffff;
             --color-text: #333333;
         }
         
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--color-text);
-            background-color: var(--color-background);
+            background-color: var(--color-white);
         }
         
         .sticky-header {
@@ -26,7 +26,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: var(--color-blue);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -37,7 +37,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--color-primary);
+            color: var(--color-yellow);
         }
         
         nav ul {
@@ -51,79 +51,74 @@
         
         nav ul li a {
             text-decoration: none;
-            color: var(--color-text);
+            color: var(--color-white);
             transition: color 0.3s ease;
         }
         
         nav ul li a:hover {
-            color: var(--color-secondary);
+            color: var(--color-yellow);
         }
         
-        .language-switcher button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--color-primary);
+        .language-switcher {
+            color: var(--color-yellow);
+        }
+        
+        main {
+            padding-top: 60px;
         }
         
         .hero {
-            height: 100vh;
-            background-image: url('solomon-islands-beach.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-color: var(--color-green);
+            color: var(--color-white);
             text-align: center;
-            color: white;
-        }
-        
-        .hero-content {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 4rem 2rem;
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
         }
         
         .cta-button {
             display: inline-block;
-            background-color: var(--color-secondary);
-            color: white;
+            background-color: var(--color-yellow);
+            color: var(--color-blue);
             padding: 0.8rem 1.5rem;
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
             transition: background-color 0.3s ease;
         }
         
         .cta-button:hover {
-            background-color: var(--color-accent);
+            background-color: var(--color-white);
         }
         
         .plans {
             padding: 4rem 2rem;
+            background-color: var(--color-white);
+        }
+        
+        .plans h2 {
+            text-align: center;
+            color: var(--color-blue);
         }
         
         .plan-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 2rem;
+            margin-top: 2rem;
         }
         
         .plan-card {
-            background-color: white;
+            background-color: var(--color-blue);
+            color: var(--color-white);
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 2rem;
             text-align: center;
+            width: 200px;
             transition: transform 0.3s ease;
         }
         
@@ -132,34 +127,37 @@
         }
         
         .plan-card h3 {
-            color: var(--color-primary);
+            color: var(--color-yellow);
         }
         
         .select-plan {
             display: inline-block;
             margin-top: 1rem;
             padding: 0.5rem 1rem;
-            background-color: var(--color-primary);
-            color: white;
+            background-color: var(--color-yellow);
+            color: var(--color-blue);
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
             transition: background-color 0.3s ease;
         }
         
         .select-plan:hover {
-            background-color: var(--color-secondary);
+            background-color: var(--color-white);
         }
         
         .features {
-            background-color: var(--color-accent);
+            background-color: var(--color-green);
             padding: 4rem 2rem;
             text-align: center;
+            color: var(--color-white);
         }
         
         .feature-items {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+            margin-top: 2rem;
         }
         
         .feature-item {
@@ -169,18 +167,18 @@
         
         .feature-icon {
             font-size: 3rem;
-            color: var(--color-primary);
+            color: var(--color-yellow);
         }
         
         footer {
-            background-color: var(--color-primary);
-            color: white;
+            background-color: var(--color-blue);
+            color: var(--color-white);
             padding: 2rem;
             text-align: center;
         }
         
         .footer-links a {
-            color: white;
+            color: var(--color-yellow);
             margin: 0 1rem;
             text-decoration: none;
         }
@@ -195,10 +193,6 @@
                 margin-top: 1rem;
             }
             
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
             .feature-items {
                 flex-direction: column;
             }
@@ -209,24 +203,22 @@
     <header class="sticky-header">
         <div class="logo">Solo-Net</div>
         <nav>
-            <ul>
+            <!--<ul>
                 <li><a href="#plans">Plans</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#support">Support</a></li>
             </ul>
         </nav>
         <div class="language-switcher">
-            <button aria-label="Switch language">EN | Pijin</button>
-        </div>
+            EN | Pijin
+        </div>-->
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <h1>Welcome to Solo-Net WiFi</h1>
-                <p class="tagline">Island-wide connectivity at your fingertips</p>
-                <a href="#plans" class="cta-button">Connect Now</a>
-            </div>
+            <h1>Welcome to Solo-Net WiFi</h1>
+            <p>Island-wide connectivity at your fingertips</p>
+            <a href="#plans" class="cta-button">Connect Now</a>
         </section>
 
         <section id="plans" class="plans">
