@@ -43,6 +43,8 @@
         nav ul {
             display: flex;
             list-style-type: none;
+            margin: 0;
+            padding: 0;
         }
         
         nav ul li {
@@ -95,7 +97,7 @@
         }
         
         .plans {
-            padding: 4rem 2rem;
+            padding: 4rem 1rem;
             background-color: var(--color-white);
         }
         
@@ -108,7 +110,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1rem;
             margin-top: 2rem;
         }
         
@@ -116,10 +118,12 @@
             background-color: var(--color-blue);
             color: var(--color-white);
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
-            width: 200px;
+            width: calc(25% - 0.75rem);
+            min-width: 200px;
             transition: transform 0.3s ease;
+            box-sizing: border-box;
         }
         
         .plan-card:hover {
@@ -128,6 +132,12 @@
         
         .plan-card h3 {
             color: var(--color-yellow);
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+        
+        .plan-card p {
+            margin: 0.5rem 0;
         }
         
         .select-plan {
@@ -196,6 +206,31 @@
             .feature-items {
                 flex-direction: column;
             }
+            
+            .plan-cards {
+                justify-content: space-between;
+            }
+            
+            .plan-card {
+                width: calc(50% - 0.5rem);
+                min-width: auto;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .plan-card {
+                font-size: 0.9rem;
+            }
+            
+            .plan-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .select-plan {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -203,7 +238,7 @@
     <header class="sticky-header">
         <div class="logo">Solo-Net</div>
         <nav>
-            <!--<ul>
+            <ul>
                 <li><a href="#plans">Plans</a></li>
                 <li><a href="#features">Features</a></li>
                 <li><a href="#support">Support</a></li>
@@ -211,7 +246,7 @@
         </nav>
         <div class="language-switcher">
             EN | Pijin
-        </div>-->
+        </div>
     </header>
 
     <main>
