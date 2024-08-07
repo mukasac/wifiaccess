@@ -30,7 +30,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 2rem;
             z-index: 1000;
         }
         
@@ -39,6 +39,15 @@
             font-weight: bold;
             color: var(--color-yellow);
         }
+        .logo-container {
+    display: flex;
+    align-items: center;
+
+            .wifi-icon {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
         
         nav ul {
             display: flex;
@@ -218,11 +227,15 @@
             text-decoration: none;
         }
         
-        @media (max-width: 768px) {
-            .sticky-header {
-                flex-direction: column;
-                padding: 0.5rem;
-            }
+       @media (max-width: 768px) {
+    .sticky-header {
+        padding: 0.5rem 1rem;
+    }
+    
+    .logo-container {
+        margin-bottom: 0.5rem;
+    }
+}
             
             nav ul {
                 margin-top: 0.5rem;
@@ -269,17 +282,10 @@
 </head>
 <body>
     <header class="sticky-header">
+      <div class="logo-container">
+        <span class="wifi-icon"> &#xf1eb; </span>
         <div class="logo">Solo-Net</div>
-        <!--<nav>
-            <ul>
-                <li><a href="#plans">Plans</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#support">Support</a></li>
-            </ul>
-        </nav>-->
-        <!--<div class="language-switcher">
-            EN | Pijin
-        </div>-->
+    </div>
     </header>
 
     <main>
